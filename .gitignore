@@ -4,3 +4,4 @@ build/classes/.netbeans_automatic_build
 build/classes/.netbeans_update_resources
 build/classes/lecturaescrituraarchivos/LecturaEscrituraArchivos.class
 *.properties
+build/

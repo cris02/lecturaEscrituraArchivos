@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Aguilar
  */
-public class LecturaEscrituraArchivos {
+public class EscrituraArchivos {
 
     /**
      * @param args the command line arguments
@@ -34,7 +34,7 @@ public class LecturaEscrituraArchivos {
             }
             fichero.close();
         } catch (IOException ex) {
-            Logger.getLogger(LecturaEscrituraArchivos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EscrituraArchivos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
