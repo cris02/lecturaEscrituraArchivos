@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,12 +31,15 @@ public class LeerArchivoCSV {
     private static final String SAN_SALVADOR = "SAN SALVADOR";
 
     public static void main(String[] args) {
+        
+        Scanner teclado = new Scanner(System.in);
 
         BufferedReader bf = null; // almacena la lectura temporalmente en memoria
         FileInputStream fInputStream = null; // abre el flujo de datos para poder realizar la lectura
         StringBuilder datosFiltrados = new StringBuilder();
 
         try {
+            
             fInputStream = new FileInputStream("C:/Users/crist/OneDrive/Desktop/dataset/ce.csv");
             bf = new BufferedReader(new InputStreamReader(fInputStream));
 
@@ -50,6 +54,24 @@ public class LeerArchivoCSV {
             }
 
             //guardar la informacion filtrada en un archivo
+            
+            System.out.println("Ingrese la ruta del directorio donde desea almacenar? presione enter para alojarlo en el directorio por defecto");
+            String directorio = teclado.nextLine();
+            
+            File directorioF;
+            
+            if (directorio != null && directorio.length() > 0) {
+                directorioF = new File(directorio);
+                if (!directorioF.isDirectory() && !directorioF.canWrite()) {
+                    System.out.println("Los datos del directorio son incorrectos");
+                    System.exit(0);
+                } 
+                
+            }
+            System.out.println("Ingrese el nombre del archivo");
+            String nombreArchivo = teclado.nextLine();
+            File ficheroEscritura = new File(directorio+"/"+nombreArchivo);
+            
             File file = new File("C:/Users/crist/OneDrive/Desktop/dataset/datosFiltrados.csv");
             FileWriter fEscritura = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fEscritura);
